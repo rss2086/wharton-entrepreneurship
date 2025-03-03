@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import StartupWeekBanner from "./components/StartupWeekBanner";
+import { BannerProvider } from "./context/BannerContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Wharton Entrepreneurship Club",
-  description: "Wharton Entrepreneurship Club is Wharton's largest student-run organization focused on entrepreneurship. We provide resources, events, and networking opportunities for aspiring founders.",
+  description: "The official club for entrepreneurship at the Wharton School, University of Pennsylvania",
 };
 
 export default function RootLayout({
@@ -23,11 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.className} min-h-screen flex flex-col bg-black`}>
+        <BannerProvider>
+          <StartupWeekBanner />
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </BannerProvider>
       </body>
     </html>
   );
