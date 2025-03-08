@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} min-h-screen flex flex-col bg-black`}>
+      <body className={`${inter.className} min-h-screen flex flex-col`}>
         <BannerProvider>
           <StartupWeekBanner />
           <Header />

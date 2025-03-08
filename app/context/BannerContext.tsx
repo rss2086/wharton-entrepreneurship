@@ -6,18 +6,23 @@ type BannerContextType = {
   showBanner: boolean;
   hideBanner: () => void;
   showBannerAgain: () => void;
-  isLoaded: boolean;
 };
 
 const BannerContext = createContext<BannerContextType | undefined>(undefined);
 
 export function BannerProvider({ children }: { children: ReactNode }) {
   const [showBanner, setShowBanner] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
   
-  // Check if banner was previously hidden and if we're in the date range for Startup Week
+  // Check if banner was previously hidden
   useEffect(() => {
-    // Check if we're in the date range for Startup Week
+    const bannerHidden = localStorage.getItem('startupWeekBannerHidden');
+    if (bannerHidden === 'true') {
+      setShowBanner(false);
+    }
+  }, []);
+
+  // Check if we're in the date range for Startup Week
+  useEffect(() => {
     const now = new Date();
     const startupWeekStart = new Date('2024-04-15');
     const startupWeekEnd = new Date('2024-04-19');
@@ -26,16 +31,7 @@ export function BannerProvider({ children }: { children: ReactNode }) {
     if (now >= startupWeekStart && now <= startupWeekEnd) {
       setShowBanner(true);
       localStorage.removeItem('startupWeekBannerHidden');
-    } else {
-      // Only check localStorage if we're not in Startup Week
-      const bannerHidden = localStorage.getItem('startupWeekBannerHidden');
-      if (bannerHidden === 'true') {
-        setShowBanner(false);
-      }
     }
-    
-    // Mark as loaded after initial state is determined
-    setIsLoaded(true);
   }, []);
 
   const hideBanner = () => {
@@ -49,7 +45,7 @@ export function BannerProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <BannerContext.Provider value={{ showBanner, hideBanner, showBannerAgain, isLoaded }}>
+    <BannerContext.Provider value={{ showBanner, hideBanner, showBannerAgain }}>
       {children}
     </BannerContext.Provider>
   );

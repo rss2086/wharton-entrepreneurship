@@ -2,8 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="bg-gradient-to-b from-slate-900 to-black text-gray-300 border-t border-indigo-900/30">
+    <footer className="bg-white text-gray-600 border-t border-gray-200">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
@@ -13,14 +15,14 @@ export default function Footer() {
                 alt="Wharton Entrepreneurship Club Logo"
                 width={40}
                 height={40}
-                className="w-10 h-10 invert brightness-150"
+                className="w-10 h-10"
               />
               <div className="flex flex-col">
-                <span className="font-bold text-[#ff4b4b] text-lg leading-tight group-hover:text-white transition-colors">Wharton</span>
-                <span className="text-sm text-gray-300 leading-tight">Entrepreneurship Club</span>
+                <span className="font-bold text-blue-700 text-lg leading-tight transition-colors">Wharton</span>
+                <span className="text-sm text-gray-600 leading-tight">Entrepreneurship Club</span>
               </div>
             </Link>
-            <p className="text-gray-400 mb-4 text-sm">
+            <p className="text-gray-500 mb-6 text-sm">
               Empowering the next generation of entrepreneurs at the Wharton School of the University of Pennsylvania.
             </p>
             <div className="flex space-x-4">
@@ -31,7 +33,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider text-gray-900 mb-4">Quick Links</h3>
+            <h3 className="font-bold text-sm uppercase tracking-wider text-blue-700 mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <FooterLink href="/">Home</FooterLink>
               <FooterLink href="/about">About Us</FooterLink>
@@ -42,7 +44,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider text-gray-900 mb-4">Resources</h3>
+            <h3 className="font-bold text-sm uppercase tracking-wider text-blue-700 mb-4">Resources</h3>
             <ul className="space-y-2">
               <FooterLink href="/resources">Resource Library</FooterLink>
               <FooterLink href="/mentorship">Mentorship</FooterLink>
@@ -52,15 +54,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider text-gray-900 mb-4">Contact Us</h3>
-            <address className="not-italic text-gray-600 text-sm">
+            <h3 className="font-bold text-sm uppercase tracking-wider text-blue-700 mb-4">Contact Us</h3>
+            <address className="not-italic text-gray-500 text-sm">
               <p>Wharton Entrepreneurship Club</p>
               <p>The Wharton School</p>
               <p>University of Pennsylvania</p>
               <p>3730 Walnut Street</p>
               <p>Philadelphia, PA 19104</p>
               <p className="mt-2">
-                <a href="mailto:entrepreneurship@wharton.upenn.edu" className="hover:text-[#8C1515] transition-colors">
+                <a href="mailto:entrepreneurship@wharton.upenn.edu" className="text-blue-600 hover:text-blue-800 transition-colors">
                   entrepreneurship@wharton.upenn.edu
                 </a>
               </p>
@@ -68,9 +70,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500 text-xs">
-          <p>&copy; {new Date().getFullYear()} Wharton Entrepreneurship Club. All rights reserved.</p>
-          <p className="mt-1">The Wharton School, University of Pennsylvania</p>
+        <div className="border-t border-gray-200 mt-10 pt-8 flex flex-col md:flex-row md:justify-between items-center text-gray-500 text-sm">
+          <p>&copy; {currentYear} Wharton Entrepreneurship Club. All rights reserved.</p>
+          <div className="mt-4 md:mt-0 flex space-x-6">
+            <Link href="/privacy" className="hover:text-blue-700 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-blue-700 transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>
@@ -79,13 +84,13 @@ export default function Footer() {
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <li className="mb-2">
+    <li>
       <Link 
         href={href} 
-        className="text-gray-400 hover:text-white transition-colors relative inline-block group"
+        className="text-gray-500 hover:text-blue-700 transition-colors relative inline-block group"
       >
         {children}
-        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
       </Link>
     </li>
   );
@@ -97,7 +102,8 @@ function SocialLink({ href, icon }: { href: string; icon: string }) {
       href={href} 
       target="_blank" 
       rel="noopener noreferrer" 
-      className="text-gray-400 hover:text-white transition-colors bg-slate-800 hover:bg-indigo-900/50 p-2 rounded-full"
+      className="text-gray-400 hover:text-blue-700 transition-colors bg-gray-100 hover:bg-gray-200 p-2 rounded-full"
+      aria-label={icon}
     >
       <span className="sr-only">{icon}</span>
       {icon === "twitter" && (
