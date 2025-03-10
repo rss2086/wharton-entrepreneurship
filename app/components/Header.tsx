@@ -68,12 +68,8 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
             <NavLink href="/" scrolled={scrolled || !isHomePage}>Home</NavLink>
-            <NavLink href="/about" scrolled={scrolled || !isHomePage}>About Us</NavLink>
-            <NavLink href="/programs" scrolled={scrolled || !isHomePage}>Programs</NavLink>
-            <NavLink href="/events" scrolled={scrolled || !isHomePage}>Events</NavLink>
-            <NavLink href="/team" scrolled={scrolled || !isHomePage}>Our Team</NavLink>
             <NavLink href="/startup-week" scrolled={scrolled || !isHomePage}>Startup Week</NavLink>
-            <NavLink href="/ventures" scrolled={scrolled || !isHomePage}>Ventures</NavLink>
+            <NavLink href="/calendar" scrolled={scrolled || !isHomePage}>Calendar</NavLink>
             
             {/* Join button with highlight */}
             <Link
@@ -137,15 +133,8 @@ export default function Header() {
             transition={{ duration: 0.3 }}
           >
             <MobileNavLink href="/" onClick={toggleMenu} scrolled={scrolled || !isHomePage}>Home</MobileNavLink>
-            <MobileNavLink href="/about" onClick={toggleMenu} scrolled={scrolled || !isHomePage}>About Us</MobileNavLink>
-            <MobileNavLink href="/programs" onClick={toggleMenu} scrolled={scrolled || !isHomePage}>Programs</MobileNavLink>
-            <MobileNavLink href="/events" onClick={toggleMenu} scrolled={scrolled || !isHomePage}>Events</MobileNavLink>
-            <MobileNavLink href="/team" onClick={toggleMenu} scrolled={scrolled || !isHomePage}>Our Team</MobileNavLink>
             <MobileNavLink href="/startup-week" onClick={toggleMenu} scrolled={scrolled || !isHomePage}>Startup Week</MobileNavLink>
-            <MobileNavLink href="/ventures" onClick={toggleMenu} scrolled={scrolled || !isHomePage}>Ventures</MobileNavLink>
-            <MobileNavLink href="/sponsorships" onClick={toggleMenu} scrolled={scrolled || !isHomePage}>Sponsorships</MobileNavLink>
-            <MobileNavLink href="/resources" onClick={toggleMenu} scrolled={scrolled || !isHomePage}>Resources</MobileNavLink>
-            <MobileNavLink href="/contact" onClick={toggleMenu} scrolled={scrolled || !isHomePage}>Contact</MobileNavLink>
+            <MobileNavLink href="/calendar" onClick={toggleMenu} scrolled={scrolled || !isHomePage}>Calendar</MobileNavLink>
             
             {/* Mobile Join Button */}
             <div className="px-4 pt-2">

@@ -26,9 +26,8 @@ export default function Footer() {
               Empowering the next generation of entrepreneurs at the Wharton School of the University of Pennsylvania.
             </p>
             <div className="flex space-x-4">
-              <SocialLink href="https://twitter.com/whartonent" icon="twitter" />
-              <SocialLink href="https://instagram.com/whartonentrepreneurship" icon="instagram" />
-              <SocialLink href="https://linkedin.com/company/wharton-entrepreneurship" icon="linkedin" />
+              <SocialLink href="https://www.instagram.com/whartoneclub/" icon="instagram" />
+              <SocialLink href="https://www.linkedin.com/company/wharton-eclub/" icon="linkedin" />
             </div>
           </div>
 
@@ -36,10 +35,20 @@ export default function Footer() {
             <h3 className="font-bold text-sm uppercase tracking-wider text-blue-700 mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <FooterLink href="/">Home</FooterLink>
-              <FooterLink href="/about">About Us</FooterLink>
-              <FooterLink href="/programs">Programs</FooterLink>
               <FooterLink href="/startup-week">Startup Week</FooterLink>
-              <FooterLink href="/ventures">Ventures</FooterLink>
+              <FooterLink href="/calendar">Calendar</FooterLink>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-sm uppercase tracking-wider text-blue-700 mb-4">Connect With Us</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="https://www.instagram.com/whartoneclub/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-700 transition-colors">Instagram</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/wharton-eclub/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-700 transition-colors">LinkedIn</a>
+              </li>
             </ul>
           </div>
 
@@ -73,8 +82,7 @@ export default function Footer() {
         <div className="border-t border-gray-200 mt-10 pt-8 flex flex-col md:flex-row md:justify-between items-center text-gray-500 text-sm">
           <p>&copy; {currentYear} Wharton Entrepreneurship Club. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex space-x-6">
-            <Link href="/privacy" className="hover:text-blue-700 transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-blue-700 transition-colors">Terms of Service</Link>
+            <a href="https://www.upenn.edu/about/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-blue-700 transition-colors">Privacy Policy</a>
           </div>
         </div>
       </div>

@@ -127,7 +127,7 @@ export function HeroSection() {
       </div>
 
       {/* Logo Marquee Section - Full width */}
-      <div className="relative z-20 w-full mt-12">
+      <div className="relative z-20 w-full my-12">
         <LogoMarquee className="mb-4" whiteLogos={true} />
       </div>
       
