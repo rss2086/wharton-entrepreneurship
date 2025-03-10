@@ -1,21 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useLottie } from "lottie-react";
 import Image from 'next/image';
-import rocket from "../small-rocket.json";
+import { useEffect, useState } from 'react';
+import { useScreenSize } from '../hooks/useScreenSize';
+import { LogoMarquee } from './LogoMarquee';
+import RocketAnimation from './RocketAnimation';
+import SpeedLines from './SpeedLines';
 
-export default function HeroSection() {
-  const { View: RocketAnimation } = useLottie({
-    animationData: rocket,
-    loop: true,
-    autoplay: true,
-  });
+export function HeroSection() {
+  // Get screen size to conditionally render components
+  const { isDesktop } = useScreenSize();
+  const [isClient, setIsClient] = useState(false);
+
+  // Ensure we only render screen-specific components after hydration
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-black via-slate-900 to-indigo-900 text-white min-h-screen px-4">
+    <div className="relative overflow-hidden bg-gradient-to-br from-black via-slate-900 to-indigo-900 text-white pt-12 min-h-screen">
       {/* Starfield Background */}
       <div className="absolute inset-0 bg-[url('/starfield.svg')] bg-cover bg-center z-0"></div>
+      
       {/* Animated Twinkling Stars */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {[...Array(100)].map((_, i) => (
@@ -39,10 +46,21 @@ export default function HeroSection() {
           />
         ))}
       </div>
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:py-32 pt-16 z-20">
-        <div className="lg:flex lg:items-center lg:justify-between">
+
+      {/* Full-height speed lines for desktop - positioned to cover entire section */}
+      {isClient && isDesktop && (
+        <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+          <SpeedLines isMobile={false} />
+        </div>
+      )}
+      
+      {/* Main Content Container */}
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-16 lg:pt-16">
+        {/* Flex container for desktop layout with content and rocket side by side */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-4 xl:gap-8 relative">
+          {/* Hero Text Content */}
           <motion.div 
-            className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto"
+            className="mx-auto max-w-2xl lg:mx-0 lg:flex-1 lg:max-w-none lg:pr-4 xl:pr-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -50,7 +68,7 @@ export default function HeroSection() {
             <div className="flex justify-start items-center space-x-4">
               <Image src="/eclub-logo.png" alt="EClub Logo" width={256} height={256} className="invert" />
             </div>
-            <h1 className="max-w-lg text-4xl font-bold tracking-tight text-white sm:text-6xl pt-4">
+            <h1 className="max-w-lg lg:max-w-none text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl xl:text-6xl pt-4">
               Your home for entrepreneurship at <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">Wharton</span>
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-300 md:text-3xl">
@@ -75,79 +93,76 @@ export default function HeroSection() {
               </a>
             </div>
           </motion.div>
+
+          {/* Rocket Animation Container - conditionally rendered based on screen size */}
+          {isClient && isDesktop && (
+            <div className="relative z-20 pointer-events-none lg:flex-1 lg:min-w-[400px] lg:max-w-[500px] xl:max-w-[550px]">
+              <motion.div 
+                className="relative w-full"
+                initial={{ y: '100%', opacity: 0 }}
+                animate={{ 
+                  y: [100, 0],
+                  opacity: [0, 1]
+                }}
+                transition={{ 
+                  duration: 2, 
+                  ease: "easeInOut",
+                  y: {
+                    type: "spring",
+                    damping: 15,
+                    stiffness: 100
+                  },
+                  opacity: {
+                    duration: 1.5
+                  }
+                }}
+              >
+                <div className="w-full h-[450px] xl:h-[500px] flex justify-center items-center relative">
+                  <RocketAnimation isMobile={false} />
+                </div>
+              </motion.div>
+            </div>
+          )}
         </div>
       </div>
-      <div className="z-10">
-        <motion.div 
-          className="absolute bottom-0 md:left-1/2 transform md:-translate-x-1/2 w-full max-w-sm lg:max-w-2xl"
-          initial={{ y: '100%', opacity: 0 }}
-          animate={{ 
-            y: ['100%', '28%'],
-            opacity: [0, 1]
-          }}
-          transition={{ 
-            duration: 2, 
-            ease: "easeInOut",
-            y: {
-              type: "spring",
-              damping: 15,
-              stiffness: 100
-            },
-            opacity: {
-              duration: 1.5
-            }
-          }}
-        >
-          <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[900px] flex justify-center items-center relative">
-            {/* Speed lines */}
-            <motion.div 
-              className="absolute inset-0 overflow-hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.2 }}
-            >
-              {[...Array(20)].map((_, index) => (
-                <motion.div
-                  key={index}
-                  className="absolute bg-gradient-to-r from-zinc-300 to-zinc-500 sm:h-[500px] sm:w-[1px]"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    transform: `rotate(${75 + Math.random() * 30}deg)`,
-                  }}
-                  animate={{
-                    y: ['-100%', '100%'],
-                    opacity: [0, 0.7, 0],
-                    transition: {
-                      duration: 1.5 + Math.random(),
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: Math.random() * 2,
-                    },
-                  }}
-                />
-              ))}
-            </motion.div>
 
-            {/* Rocket */}
-            <motion.div 
-              className="w-full max-w-[400px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[900px] relative z-10"
-              animate={{
-                y: [0, -10, 0],
-                rotate: [-1, 1, -1]
-              }}
-              transition={{
-                duration: 4,
-                ease: "easeInOut",
-                repeat: Infinity,
-                repeatType: "reverse"
-              }}
-            >
-              {RocketAnimation}
-            </motion.div>
-          </div>
-        </motion.div>
+      {/* Logo Marquee Section - Full width */}
+      <div className="relative z-20 w-full mt-12">
+        <LogoMarquee className="mb-4" whiteLogos={true} />
       </div>
+      
+      {/* Mobile Rocket Animation - Only renders on smaller screens */}
+      {isClient && !isDesktop && (
+        <div className="relative z-10 mt-8 pointer-events-none">
+          <motion.div 
+            className="relative mx-auto w-full max-w-sm"
+            initial={{ y: '100%', opacity: 0 }}
+            animate={{ 
+              y: [100, 0],
+              opacity: [0, 1]
+            }}
+            transition={{ 
+              duration: 2, 
+              ease: "easeInOut",
+              y: {
+                type: "spring",
+                damping: 15,
+                stiffness: 100
+              },
+              opacity: {
+                duration: 1.5
+              }
+            }}
+          >
+            <div className="w-full h-[300px] sm:h-[400px] flex justify-center items-center relative">
+              <SpeedLines isMobile={true} />
+              <RocketAnimation isMobile={true} />
+            </div>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }
+
+export default HeroSection;
