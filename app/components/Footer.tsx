@@ -53,16 +53,6 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider text-blue-700 mb-4">Resources</h3>
-            <ul className="space-y-2">
-              <FooterLink href="/resources">Resource Library</FooterLink>
-              <FooterLink href="/mentorship">Mentorship</FooterLink>
-              <FooterLink href="/funding">Venture Initiation Program</FooterLink>
-              <FooterLink href="/partners">Partners & Sponsors</FooterLink>
-            </ul>
-          </div>
-
-          <div>
             <h3 className="font-bold text-sm uppercase tracking-wider text-blue-700 mb-4">Contact Us</h3>
             <address className="not-italic text-gray-500 text-sm">
               <p>Wharton Entrepreneurship Club</p>
@@ -70,11 +60,6 @@ export default function Footer() {
               <p>University of Pennsylvania</p>
               <p>3730 Walnut Street</p>
               <p>Philadelphia, PA 19104</p>
-              <p className="mt-2">
-                <a href="mailto:entrepreneurship@wharton.upenn.edu" className="text-blue-600 hover:text-blue-800 transition-colors">
-                  entrepreneurship@wharton.upenn.edu
-                </a>
-              </p>
             </address>
           </div>
         </div>
