@@ -39,16 +39,3 @@ export default function StartupWeekPage() {
     </div>
   );
 }
-
-function CountdownItem({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="flex flex-col items-center">
-      <div className="text-4xl md:text-6xl font-bold">{value}</div>
-      <div className="text-sm md:text-base mt-2 text-gray-300">{label}</div>
-    </div>
-  );
-}
-
-function CountdownDivider() {
-  return <div className="text-4xl md:text-6xl font-light self-start mt-1">:</div>;
-} 

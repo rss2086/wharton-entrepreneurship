@@ -1,8 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useLottie } from "lottie-react";
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+
+// Dynamically import lottie-react to prevent document reference errors during SSR
+const DynamicLottie = dynamic(() => import('lottie-react'), { ssr: false });
+
+// Import the animation data directly
 import rocket from "../small-rocket.json";
 
 interface RocketAnimationProps {
@@ -22,8 +27,6 @@ export function RocketAnimation({ isMobile = false }: RocketAnimationProps) {
       clearCanvas: false,
     }
   };
-
-  const { View } = useLottie(options);
 
   // Make sure the animation is visible after mounting
   useEffect(() => {
@@ -90,7 +93,7 @@ export function RocketAnimation({ isMobile = false }: RocketAnimationProps) {
       <div className="relative">
         {/* Subtle shine effect */}
         {/* <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-100 to-transparent opacity-5 mix-blend-overlay"></div> */}
-        {View}
+        <DynamicLottie {...options} />
       </div>
     </motion.div>
   );
