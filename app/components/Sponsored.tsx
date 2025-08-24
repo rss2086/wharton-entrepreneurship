@@ -11,10 +11,10 @@ export default function Sponsored() {
         </div>
         <div className="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
           <div className="mx-auto w-full max-w-xl lg:mx-0">
-            <h2 className="text-3xl font-bold tracking-tight text-white">Sponsor EClub for 2024-2025</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-white">Sponsor EClub for 2025-2026</h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">We&apos;re seeking visionary corporations to partner with for the upcoming academic year. Your sponsorship will empower the next generation of entrepreneurs at Wharton, providing invaluable resources and opportunities to our members. Previous sponsors have hosted events with Wharton students, brought in speakers, and provided networking opportunities.</p>
             <div className="mt-8 flex items-center gap-x-6">
-              <a href="mailto:rohanss@wharton.upenn.edu" className="text-sm font-semibold text-white underline">Contact us for Sponsorship Opportunities<span aria-hidden="true">&rarr;</span></a>
+              <a href="mailto:xalexliu@wharton.upenn.edu" className="text-sm font-semibold text-white underline">Contact us for Sponsorship Opportunities<span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
           <div className="mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none lg:pl-8">

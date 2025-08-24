@@ -24,8 +24,8 @@ export function BannerProvider({ children }: { children: ReactNode }) {
   // Check if we're in the date range for Startup Week
   useEffect(() => {
     const now = new Date();
-    const startupWeekStart = new Date('2024-04-15');
-    const startupWeekEnd = new Date('2024-04-19');
+    const startupWeekStart = new Date('2025-04-15');
+    const startupWeekEnd = new Date('2025-04-19');
     
     // Always show banner during Startup Week regardless of user preference
     if (now >= startupWeekStart && now <= startupWeekEnd) {

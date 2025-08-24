@@ -4,25 +4,25 @@ import Image from 'next/image';
 
 const people = [
   {
-    name: 'Rohan Shah',
+    name: 'Alex Liu',
     role: 'Co-President',
-    imageUrl: '/leadership/rohan-picture.jpeg',
-    linkedinUrl: 'https://linkedin.com/in/rss2086',
-    email:'rohanss@wharton.upenn.edu'
+    imageUrl: '/leadership/alex.jpeg',
+    linkedinUrl: 'https://linkedin.com/in/xalexliu/',
+    email:'xalexliu@wharton.upenn.edu'
   },
   {
-    name: 'Srineetha Maddineni',
+    name: 'Jillian Jones',
     role: 'Co-President',
-    imageUrl: '/leadership/srineetha-picture.jpeg',
-    linkedinUrl: 'https://www.linkedin.com/in/srineethamaddineni/',
-    email:'srimad@wharton.upenn.edu'
+    imageUrl: '/leadership/jillian.jpeg',
+    linkedinUrl: 'https://www.linkedin.com/in/jillianjones1/',
+    email:'jillianj@wharton.upenn.edu'
   },
   {
-    name: 'Naman Jain',
+    name: 'Evan Zhang',
     role: 'Co-President',
-    imageUrl: '/leadership/naman-picture.jpeg',
-    linkedinUrl: 'https://www.linkedin.com/in/naman-jain-5a6126165/',
-    email: 'naman9@wharton.upenn.edu',
+    imageUrl: '/leadership/evan.jpeg',
+    linkedinUrl: 'https://www.linkedin.com/in/evanzhanghealth/',
+    email: 'evzhang@wharton.upenn.edu',
   },
 ];
 
@@ -31,7 +31,7 @@ export default function ClubLeadership() {
     <div className="bg-gradient-to-r from-zinc-900 via-zinc-950 to-blue-950 py-32">
       <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
         <div className="mx-auto max-w-2xl">
-          <h2 className="text-4xl text-white font-bold sm:text-5xl">Meet our 24-25 Leadership</h2>
+          <h2 className="text-4xl text-white font-bold sm:text-5xl">Meet our 25-26 Leadership</h2>
           <p className="text-white py-4 text-lg">Feel free to reach out to us on Linkedin or via email for any questions or opportunities.</p>
         </div>
         <ul

@@ -1,14 +1,4 @@
-<think>I'll create a high-level README.md for the GitHub repository that covers the key information about the project without delving into the SSR implementation details. I'll focus on:
-
-1. Brief introduction to the project
-2. Technology stack
-3. Key features
-4. Setup instructions
-5. Basic development commands
-6. Contributing guidelines (if relevant)
-7. License information
-
-I'll use a more visually appealing format with badges, clear headings, and concise descriptions to make it GitHub-friendly.</think># Wharton E-Club Website
+# Wharton E-Club Website
 
 ![Next.js](https://img.shields.io/badge/Next.js-15.x-black?style=flat-square&logo=next.js)
 ![React](https://img.shields.io/badge/React-19.x-blue?style=flat-square&logo=react)

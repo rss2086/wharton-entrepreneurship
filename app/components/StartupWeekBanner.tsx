@@ -39,7 +39,7 @@ export default function StartupWeekBanner() {
       
       <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between relative z-10">
         <div className="flex items-center space-x-3">
-          <span className="font-semibold text-sm">Wharton Startup Week 2024</span>
+          <span className="font-semibold text-sm">Wharton Startup Week 2025</span>
           <span className="hidden sm:inline text-white/80">•</span>
           <span className="hidden sm:inline text-sm text-white/80">April 15-19</span>
         </div>
