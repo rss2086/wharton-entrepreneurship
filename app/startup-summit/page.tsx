@@ -20,7 +20,7 @@ export default function StartupSummitPage() {
           <p className="text-xl">
             We&apos;re taking over Sheraton University City for a full day packed with over
             25+ founders, a networking fair, and two incredible keynotes by the
-            CEO + Cofounder of Stan, John Hu, and the CEO + Cofounder of Beli, Judy Thelen.
+            CEO/Co-founder of Stan, John Hu, and the CEO/Co-founder of Beli, Judy Thelen.
           </p>
         </div>
 
